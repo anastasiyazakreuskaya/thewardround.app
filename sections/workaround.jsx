@@ -8,19 +8,14 @@ const Workaround = () => {
     <div className="section" data-screen-label="02 Workaround" style={{ "--accent": "var(--c-workaround)" }}>
       <FolderCover
         hospital="The Ward Round · Filed Notes"
-        volume="Vol. II / 2026"
         sectionRoman="II"
         sectionTitle="The <em>Workaround</em>"
-        surname="Field notes"
-        given="Anonymous, attributed by role"
-        unit="WR-W / 200–300 words"
-        dob="Filed monthly"
-        period="2025–2026"
+        surname="Anonymous field notes from clinical HCI research"
         flagText="Anonymous · No names recorded"
         accent="var(--c-workaround)"
         digits={["0", "2"]}
         stampText="Anonymous · Filed"
-        meta="A real problem a member hit doing HCI research in a clinical setting, and how they navigated it. Two-hundred to three-hundred words. Attributed by role and context only — never by name."
+        meta="A real problem a member hit doing HCI research in a clinical setting, and how they navigated it. Attributed by role and context only — never by name."
       />
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 240px", gap: 40, alignItems: "start", marginBottom: 26 }} className="wa-meta">
@@ -39,6 +34,8 @@ const Workaround = () => {
         <window.WRPhoto kind="corridor" height={300} accent="var(--c-workaround)" tag="Plate ii" caption="Day shift, ward 4" tilt="l" />
       </div>
       <style>{`@media (max-width: 880px) { .wa-pull { grid-template-columns: 1fr !important; } }`}</style>
+
+
 
       <div className="tile-grid">
         {items.map((it, i) => (
@@ -60,6 +57,50 @@ const Workaround = () => {
             </div>
           </article>
         ))}
+      </div>
+
+      {/* Submit a workaround */}
+      <div style={{ maxWidth: 720, margin: "80px auto 80px", padding: "32px", background: "color-mix(in oklch, var(--c-workaround) 8%, transparent)", border: "2px solid var(--c-workaround)" }}>
+        <div className="kicker" style={{ marginBottom: 16 }}>
+          <span className="dot" /><span>Share your workaround</span>
+        </div>
+        <h3 className="h-section" style={{ fontSize: 28, marginBottom: 16 }}>
+          Have a story from the field?
+        </h3>
+        <p className="body-text" style={{ fontSize: 16, marginBottom: 20, color: "var(--ink)" }}>
+          We're looking for real problems you've encountered doing HCI research in clinical settings — and how you navigated them. 200-300 words, attributed by role only (e.g., "A PhD student in a UK hospital"). Anonymous submissions welcome.
+        </p>
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ fontFamily: "var(--f-label)", fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--ink-3)", marginBottom: 8 }}>
+            What to include:
+          </div>
+          <ul style={{ fontSize: 15, lineHeight: 1.7, color: "var(--ink-2)", paddingLeft: 20 }}>
+            <li>The problem you faced</li>
+            <li>What you tried that didn't work</li>
+            <li>What you changed or learned</li>
+          </ul>
+        </div>
+        <a 
+          href="mailto:thewardround.hci@gmail.com?subject=Workaround Submission&body=Title:%0D%0A%0D%0AAttribution (e.g., 'A PhD student at...'):%0D%0A%0D%0AThe problem:%0D%0A%0D%0AWhat I tried:%0D%0A%0D%0AWhat worked:" 
+          style={{
+            display: "inline-block",
+            padding: "12px 24px",
+            background: "var(--c-workaround)",
+            color: "var(--paper)",
+            fontFamily: "var(--f-label)",
+            fontSize: 11,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            border: "none",
+            cursor: "pointer",
+            transition: "transform 150ms ease",
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-2px)"}
+          onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+        >
+          Submit via Email →
+        </a>
       </div>
 
       {open !== null && (

@@ -2,10 +2,8 @@
 const SECTIONS = [
   { key: "home",       label: "Home",         num: "I",   digit: "1", accent: "var(--c-home)",       comp: "Home" },
   { key: "workaround", label: "Workaround",   num: "II",  digit: "2", accent: "var(--c-workaround)", comp: "Workaround" },
-  { key: "essays",     label: "Essays",       num: "III", digit: "3", accent: "var(--c-essays)",     comp: "Essays" },
-  { key: "archive",    label: "Archive",      num: "IV",  digit: "4", accent: "var(--c-archive)",    comp: "Archive" },
-  { key: "resources",  label: "Resources",    num: "V",   digit: "5", accent: "var(--c-resources)",  comp: "Resources" },
-  { key: "join",       label: "Join",         num: "VI",  digit: "6", accent: "var(--c-join)",       comp: "Join" },
+  { key: "resources",  label: "Resources",    num: "III", digit: "3", accent: "var(--c-resources)",  comp: "Resources" },
+  { key: "meetups",    label: "Meetups",      num: "IV",  digit: "4", accent: "var(--c-archive)",    comp: "Meetups" },
 ];
 
 const App = () => {
@@ -30,7 +28,7 @@ const App = () => {
     <div className="app" style={{ "--accent": current.accent }}>
       <header className="masthead">
         <span className="mark">The Ward Round<em>.</em></span>
-        <span className="meta">A working group · Vol. ii · 2026</span>
+        <span className="meta">A working group · 2026</span>
       </header>
 
       <main className="page">
@@ -58,7 +56,7 @@ const App = () => {
         <span className="sig" />
         <span>The Ward Round</span>
         <span>· Filed {new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }).toUpperCase()}</span>
-        <span>· {current.num} of VI</span>
+        <span>· {current.num} of IV</span>
       </div>
     </div>
   );

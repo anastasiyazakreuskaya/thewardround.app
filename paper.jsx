@@ -45,20 +45,20 @@ const FormBlank = ({ label, value, width = "auto" }) => (
 );
 
 // Tickable box — empty by default, can show a checkmark
-const Tickbox = ({ checked, label, width = 14 }) => (
+const Tickbox = ({ checked, label, width = 14, light = false }) => (
   <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
     <span style={{
       width, height: width,
-      border: "1.2px solid var(--ink)",
+      border: `1.2px solid ${light ? "var(--paper)" : "var(--ink)"}`,
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
       fontFamily: "var(--f-label)",
       fontSize: 11,
       lineHeight: 1,
-      color: "var(--ink)",
+      color: light ? "var(--paper)" : "var(--ink)",
     }}>{checked ? "×" : ""}</span>
-    {label && <span style={{ fontFamily: "var(--f-label)", fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--ink-2)" }}>{label}</span>}
+    {label && <span style={{ fontFamily: "var(--f-label)", fontSize: 10, letterSpacing: "0.16em", textTransform: "uppercase", color: light ? "color-mix(in oklch, var(--paper) 85%, transparent)" : "var(--ink-2)" }}>{label}</span>}
   </span>
 );
 
@@ -81,30 +81,27 @@ const ChartTab = ({ digit, accent, height = 38, width = 28 }) => (
 );
 
 // Folder cover — the "patient chart" header for each section.
-// Has a faux record header, form blanks, CONFIDENTIAL stamp,
-// chart-tab digits at top-right, and a corner punch-hole.
+// Simplified: single-line info, no volumes or dates
 const FolderCover = ({
   hospital,        // small uppercase hospital-style line
-  volume,          // e.g. "Vol. II"
   sectionRoman,    // e.g. "II"
   sectionTitle,    // big title, may include <em>
-  surname, given, unit, dob, period,
+  surname,         // main identifier
   accent,
   digits = ["0", "0"],   // 2-digit chart tab
   stampText = "Confidential",
-  flagText,        // optional small black flag, like the "Patient Alert Label" box
-  meta,            // small line for "ANONYMOUS — REDACTED" etc
+  flagText,        // optional small black flag
+  meta,            // small line for description
   children,        // body — the lede etc
 }) => {
   return (
     <div className="folder-cover" style={{ "--accent": accent }}>
-      {/* Top strip: hospital, volume, chart tabs */}
+      {/* Top strip: hospital, chart tabs */}
       <div className="fc-top">
         <div className="fc-hospital">
           <span style={{ display: "inline-block", width: 10, height: 10, background: "var(--ink)", marginRight: 10, transform: "translateY(1px)" }} />
           <span>{hospital}</span>
         </div>
-        <div className="fc-vol">{volume}</div>
         <div className="fc-tabs">
           {digits.map((d, i) => (
             <ChartTab key={i} digit={d} accent={accent} />
@@ -114,16 +111,9 @@ const FolderCover = ({
 
       <hr className="fc-rule" />
 
-      {/* Identifier row — surname / given / unit number */}
+      {/* Simplified identifier row — single line */}
       <div className="fc-blanks">
-        <FormBlank label="Surname" value={surname} />
-        <FormBlank label="Given names" value={given} />
-        <FormBlank label="Unit record №" value={unit} />
-      </div>
-
-      <div className="fc-blanks-2">
-        {dob && <FormBlank label="Date of filing" value={dob} />}
-        {period && <FormBlank label="Reporting period" value={period} />}
+        <FormBlank label="Subject" value={surname} />
         {flagText && (
           <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <span style={{

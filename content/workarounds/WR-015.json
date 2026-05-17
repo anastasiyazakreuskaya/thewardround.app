@@ -1,0 +1,13 @@
+{
+  "id": "WR-015",
+  "date": "May 2026",
+  "title": "Example workaround - replace with your own",
+  "attribution": "A researcher somewhere",
+  "excerpt": "This is an example file. Replace it with your own content.",
+  "body": [
+    "This is the first paragraph of your workaround. Each paragraph should be a separate item in the array.",
+    "This is the second paragraph. You can add as many as you need.",
+    "The final paragraph wraps up the story and shares what you learned or changed."
+  ],
+  "tags": ["Example", "Template"]
+}

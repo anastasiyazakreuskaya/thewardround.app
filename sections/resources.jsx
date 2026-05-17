@@ -9,19 +9,14 @@ const Resources = () => {
     <div className="section" data-screen-label="05 Resources" style={{ "--accent": "var(--c-resources)" }}>
       <FolderCover
         hospital="The Ward Round · Reference"
-        volume="Vol. II / 2026"
         sectionRoman="V"
         sectionTitle="The <em>Resource</em>"
-        surname="Annotated picks"
-        given="One per month"
-        unit="WR-R / 36 on file"
-        dob={r.month}
-        period="Curated by members"
+        surname="Curated papers, tools, and methods for clinical HCI"
         flagText="Annotation required"
         accent="var(--c-resources)"
         digits={["0", "5"]}
         stampText="Reference"
-        meta="Each month a member of the Round annotates one paper, tool, or method. The annotation is the point. We do not link without comment."
+        meta="Members annotate one paper, tool, or method. The annotation is the point. We do not link without comment."
       />
 
       <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 56, alignItems: "start" }} className="rsc-layout">

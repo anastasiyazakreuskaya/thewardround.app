@@ -1,29 +1,29 @@
 /* ---------- Tokens ---------- */
 :root {
-  /* Paper */
-  --paper:        oklch(0.945 0.012 78);    /* base — warm greige/linen */
-  --paper-deep:   oklch(0.915 0.014 76);    /* card / inset */
-  --paper-edge:   oklch(0.895 0.016 74);    /* edge / divider tone */
+  /* Paper — crisp white/cream like hospital charts */
+  --paper:        oklch(0.98 0.005 80);     /* clean cream white */
+  --paper-deep:   oklch(0.95 0.006 78);     /* slightly aged cream */
+  --paper-edge:   oklch(0.92 0.008 76);     /* edge tone */
 
-  /* Ink */
-  --ink:          oklch(0.22 0.012 60);
-  --ink-2:        oklch(0.36 0.010 60);     /* secondary text */
-  --ink-3:        oklch(0.52 0.008 60);     /* tertiary / labels */
-  --rule:         oklch(0.80 0.010 70);     /* hairline rules */
-  --rule-soft:    oklch(0.86 0.010 72);
+  /* Ink — authentic blue-black hospital pen */
+  --ink:          oklch(0.20 0.025 260);    /* blue-black ink */
+  --ink-2:        oklch(0.42 0.020 260);    /* faded ink */
+  --ink-3:        oklch(0.58 0.015 260);    /* very faded */
+  --rule:         oklch(0.75 0.008 240);    /* light blue-grey lines */
+  --rule-soft:    oklch(0.84 0.006 240);
 
-  /* Section accents — matched chroma ~0.08, varied hue */
-  --c-home:       oklch(0.28 0.020 60);     /* charcoal */
-  --c-workaround: oklch(0.62 0.110 25);     /* rose/coral */
-  --c-essays:     oklch(0.65 0.130 55);     /* warm orange */
-  --c-archive:    oklch(0.55 0.060 195);    /* muted teal */
-  --c-resources:  oklch(0.74 0.090 90);     /* dusty yellow */
-  --c-join:       oklch(0.58 0.060 130);    /* soft olive/sage */
+  /* Section accents — hospital chart colors (red, yellow, green markers) */
+  --c-home:       oklch(0.28 0.040 260);    /* deep blue-black */
+  --c-workaround: oklch(0.58 0.180 15);     /* red marker */
+  --c-essays:     oklch(0.68 0.180 50);     /* orange highlight */
+  --c-archive:    oklch(0.50 0.120 200);    /* teal/cyan stamp */
+  --c-resources:  oklch(0.75 0.160 90);     /* yellow highlight */
+  --c-join:       oklch(0.55 0.110 140);    /* green marker */
 
-  /* Type */
+  /* Type — more typewriter/hospital form feel */
   --f-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --f-body:    "Source Serif 4", "Iowan Old Style", Georgia, serif;
-  --f-label:   "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --f-label:   "JetBrains Mono", "Courier New", ui-monospace, monospace;
 }
 
 /* ---------- Reset / base ---------- */
@@ -34,14 +34,20 @@ body {
   font-family: var(--f-body);
   font-weight: 400;
   font-size: 17px;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--ink);
   background: var(--paper);
-  /* Very subtle paper grain — done with a soft radial overlay, no images */
-  background-image:
-    radial-gradient(ellipse at 20% 10%, oklch(0.97 0.012 78 / 0.45) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 90%, oklch(0.92 0.014 70 / 0.55) 0%, transparent 60%);
+  /* Subtle texture like real paper */
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      oklch(0.96 0.004 240 / 0.3) 1px,
+      oklch(0.96 0.004 240 / 0.3) 2px
+    );
   text-rendering: optimizeLegibility;
+  letter-spacing: 0.01em;
 }
 
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
@@ -243,18 +249,23 @@ a { color: inherit; }
   font-family: var(--f-display);
   font-weight: 600;
   font-size: clamp(44px, 5.6vw, 76px);
-  line-height: 0.98;
-  letter-spacing: -0.020em;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
   margin: 0;
   color: var(--ink);
+  text-shadow: 0 0 0.5px var(--ink);  /* Sharper, like pen on paper */
 }
-.h-section em { font-style: italic; font-weight: 400; color: var(--accent, var(--ink)); }
+.h-section em { 
+  font-style: italic; 
+  font-weight: 500; 
+  color: var(--accent, var(--ink)); 
+}
 .h-3 {
   font-family: var(--f-display);
   font-weight: 500;
   font-size: 22px;
-  line-height: 1.2;
-  letter-spacing: -0.005em;
+  line-height: 1.25;
+  letter-spacing: -0.008em;
   margin: 0;
   color: var(--ink);
 }
@@ -262,19 +273,21 @@ a { color: inherit; }
 .lede {
   font-family: var(--f-body);
   font-size: 21px;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--ink);
   max-width: 620px;
   margin: 0;
   text-wrap: pretty;
+  font-weight: 400;
 }
 .body-text {
   font-family: var(--f-body);
   font-size: 17px;
-  line-height: 1.7;
-  color: var(--ink-2);
-  max-width: 60ch;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 62ch;
   text-wrap: pretty;
+  font-weight: 380;
 }
 
 .attr {
@@ -1028,13 +1041,12 @@ button.btn:disabled { opacity: 0.4; cursor: not-allowed; }
 /* Filed-paper card — like a sheet that's been clipped into the folder */
 .filed-paper {
   position: relative;
-  background:
-    linear-gradient(to bottom, oklch(0.96 0.010 78) 0%, oklch(0.945 0.012 78) 100%);
-  border: 1px solid var(--rule-soft);
+  background: var(--paper);
+  border: 1px solid oklch(0.70 0.008 240);
   padding: 26px 26px 24px;
   box-shadow:
-    0 1px 0 0 var(--paper-edge),
-    0 12px 24px -20px oklch(0.20 0.010 60 / 0.28);
+    0 1px 2px 0 oklch(0.40 0.015 240 / 0.12),
+    0 8px 16px -12px oklch(0.20 0.020 240 / 0.20);
 }
 .filed-paper.tilt-l { transform: rotate(-0.6deg); }
 .filed-paper.tilt-r { transform: rotate(0.5deg); }
@@ -1042,11 +1054,11 @@ button.btn:disabled { opacity: 0.4; cursor: not-allowed; }
   position: absolute;
   top: -10px; left: 28px;
   width: 24px; height: 32px;
-  border: 2px solid var(--ink-2);
+  border: 2px solid oklch(0.35 0.020 260);
   border-radius: 6px 6px 4px 4px;
   border-bottom-color: transparent;
-  opacity: 0.5;
-  background: linear-gradient(180deg, transparent 0 38%, oklch(0.92 0.012 76) 38% 60%, transparent 60%);
+  opacity: 0.6;
+  background: linear-gradient(180deg, transparent 0 38%, oklch(0.88 0.010 240) 38% 60%, transparent 60%);
 }
 .filed-paper .corner-stamp {
   position: absolute;

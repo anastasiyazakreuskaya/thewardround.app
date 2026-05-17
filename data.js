@@ -1,4 +1,11 @@
 // Content for The Ward Round
+// 
+// TO MANAGE CONTENT:
+// - You can add workarounds, resources, and meetups directly in this file, OR
+// - Create JSON files in the content/ folder (see content/README.md for instructions)
+// - For now, content is managed in this file. In the future, you could write a
+//   script to automatically load all JSON files from content/ folders.
+//
 window.WR_DATA = {
   workarounds: [
     {
