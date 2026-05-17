@@ -6,22 +6,26 @@ const SECTIONS = [
   { key: "meetups",    label: "Meetups",      num: "IV",  digit: "4", accent: "var(--c-archive)",    comp: "Meetups" },
 ];
 
+// Legal page accessible via footer link only
+const LEGAL_SECTION = { key: "legal", label: "Legal", num: "V", digit: "5", accent: "var(--ink)", comp: "Legal" };
+const ALL_SECTIONS = [...SECTIONS, LEGAL_SECTION];
+
 const App = () => {
   const [section, setSection] = React.useState(() => {
     const h = (window.location.hash || "").replace("#", "");
-    return SECTIONS.find(s => s.key === h) ? h : "home";
+    return ALL_SECTIONS.find(s => s.key === h) ? h : "home";
   });
 
   React.useEffect(() => {
     window.location.hash = section;
     if (window.parent) {
-      const idx = SECTIONS.findIndex(s => s.key === section);
+      const idx = ALL_SECTIONS.findIndex(s => s.key === section);
       try { window.parent.postMessage({ slideIndexChanged: idx }, "*"); } catch (e) {}
     }
   }, [section]);
 
   const goTo = (k) => setSection(k);
-  const current = SECTIONS.find(s => s.key === section);
+  const current = ALL_SECTIONS.find(s => s.key === section);
   const Section = window[current.comp];
 
   return (
@@ -56,7 +60,20 @@ const App = () => {
         <span className="sig" />
         <span>The Ward Round</span>
         <span>· Filed {new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }).toUpperCase()}</span>
-        <span>· {current.num} of IV</span>
+        <span>· {section === "legal" ? "Legal" : `${current.num} of IV`}</span>
+        <span>·</span>
+        <a 
+          href="#legal"
+          style={{
+            color: "inherit",
+            font: "inherit",
+            fontSize: "inherit",
+            textDecoration: "underline",
+            opacity: 0.6,
+          }}
+        >
+          Legal
+        </a>
       </div>
     </div>
   );

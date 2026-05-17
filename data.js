@@ -1,11 +1,6 @@
 // Content for The Ward Round
-// 
-// TO MANAGE CONTENT:
-// - You can add workarounds, resources, and meetups directly in this file, OR
-// - Create JSON files in the content/ folder (see content/README.md for instructions)
-// - For now, content is managed in this file. In the future, you could write a
-//   script to automatically load all JSON files from content/ folders.
-//
+// Add workarounds, resources, and past meetup speakers here
+
 window.WR_DATA = {
   workarounds: [
     {
@@ -185,34 +180,37 @@ window.WR_DATA = {
 
   resources: [
     {
-      month: "April 2026",
+      month: "14 April 2026",
       kind: "Paper",
       title: "Bossen, Pine, Cabitza, Ellingsen, Piras (2019). Data work in healthcare: An Introduction.",
       annotator: "Annotated by R.M.",
       annotatorRole: "Postdoc, Manchester",
       where: "Health Informatics Journal",
+      link: "https://doi.org/10.1177/1460458219864730",
       why: "The introduction to this special issue is the single best short text I have found for explaining to a non-HCI collaborator what we mean by 'data work' in clinical settings — and why that work is, almost always, invisible to the people who commission systems. I give it to every new clinical collaborator.",
       forWhom: "PhD students in their first year of fieldwork; clinical collaborators new to HCI.",
       readTime: "Allow 35 minutes."
     },
     {
-      month: "March 2026",
+      month: "8 March 2026",
       kind: "Method",
       title: "The two-week sticky-note study",
       annotator: "Annotated by S.O.B.",
       annotatorRole: "Postdoc, Toronto",
       where: "Methodological note",
+      link: "#", // Replace with actual link when available
       why: "A protocol some of us have converged on independently: when EHR data access is blocked or slow, ask one clinician to keep a paper tally for ten working days. It is 'unscientific'. It is also the cheapest way to a defensible preliminary count, and the count is almost always enough to unblock the formal request.",
       forWhom: "Anyone fighting an EHR data-access process.",
       readTime: "Five minutes to read; two weeks to run."
     },
     {
-      month: "February 2026",
+      month: "19 February 2026",
       kind: "Tool",
       title: "Reflexive field-note template (R. Mortier, 2022)",
       annotator: "Annotated by H.M.",
       annotatorRole: "Senior associate, Manchester",
       where: "Open-access PDF",
+      link: "#", // Replace with actual link when available
       why: "A two-page template that separates 'what was observed' from 'what I felt about it' from 'what I want to ask later'. It is unfussy, it is small, and it survives being printed on the back of a ward handover sheet — which is, in practice, where I end up filling it in.",
       forWhom: "Field researchers who keep losing their reflexive notes inside their observational ones.",
       readTime: "Print both sides; keep with you."

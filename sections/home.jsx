@@ -8,7 +8,7 @@ const Home = ({ goTo }) => {
       <FolderCover
         hospital="The Ward Round · Working Group"
         sectionRoman="I"
-        sectionTitle="Notes from the <em>ward</em>, filed by the people who took them."
+        sectionTitle="Notes from the <em>ward</em>"
         surname="A working group for early-career HCI researchers in clinical settings"
         flagText="Open"
         accent="var(--c-home)"
@@ -39,8 +39,8 @@ const Home = ({ goTo }) => {
         <div style={{ display: "grid", gap: 18 }}>
           <Photo kind="ward" height={320} accent="var(--c-home)" tag="Plate i" caption="Ward, dawn" tilt="r" />
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
-            <Photo kind="notes" height={140} accent="var(--c-workaround)" tag="ii" caption="Notebook" />
-            <Photo kind="window" height={140} accent="var(--c-archive)" tag="iii" caption="Day room" />
+            <Photo kind="corridor" height={140} accent="var(--c-workaround)" tag="ii" caption="Corridor" />
+            <Photo kind="chart" height={140} accent="var(--c-resources)" tag="iii" caption="Chart" />
           </div>
         </div>
       </div>

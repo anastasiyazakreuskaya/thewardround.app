@@ -10,7 +10,7 @@ const Workaround = () => {
         hospital="The Ward Round · Filed Notes"
         sectionRoman="II"
         sectionTitle="The <em>Workaround</em>"
-        surname="Anonymous field notes from clinical HCI research"
+        surname="Anonymous field notes from clinical HCI"
         flagText="Anonymous · No names recorded"
         accent="var(--c-workaround)"
         digits={["0", "2"]}

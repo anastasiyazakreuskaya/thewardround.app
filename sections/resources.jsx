@@ -49,7 +49,7 @@ const Resources = () => {
           </div>
           <div className="kicker" style={{ marginBottom: 18 }}>
             <span className="dot" />
-            Pick of the month
+            Filed resource
           </div>
           <h3 style={{ fontFamily: "var(--f-display)", fontWeight: 500, fontSize: 28, lineHeight: 1.18, letterSpacing: "-0.008em", margin: "0 0 18px", color: "var(--ink)", textWrap: "balance" }}>
             {r.title}
@@ -64,7 +64,35 @@ const Resources = () => {
           <div className="rsc-row"><div className="k">Time</div><div className="v">{r.readTime}</div></div>
           <hr className="rule soft" style={{ margin: "26px 0 22px" }} />
           <div className="attr" style={{ marginBottom: 14, color: "var(--c-resources)" }}>Why we are filing it</div>
-          <p style={{ fontFamily: "var(--f-body)", fontSize: 18, lineHeight: 1.7, color: "var(--ink)", margin: 0, textWrap: "pretty" }}>{r.why}</p>
+          <p style={{ fontFamily: "var(--f-body)", fontSize: 18, lineHeight: 1.7, color: "var(--ink)", marginBottom: 24, textWrap: "pretty" }}>{r.why}</p>
+          {r.link && r.link !== "#" && (
+            <a 
+              href={r.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                padding: "10px 20px",
+                background: "var(--c-resources)",
+                color: "var(--paper)",
+                fontFamily: "var(--f-label)",
+                fontSize: 11,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                transition: "transform 150ms ease",
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-2px)"}
+              onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+            >
+              Access resource →
+            </a>
+          )}
+          {r.link === "#" && (
+            <div className="attr" style={{ color: "var(--ink-3)", fontStyle: "italic" }}>
+              Link pending — contact annotator for access
+            </div>
+          )}
         </article>
       </div>
 
