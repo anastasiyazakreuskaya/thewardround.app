@@ -22,6 +22,16 @@ const Home = ({ goTo }) => {
         meta="A working group for early-career HCI researchers working in clinical settings."
       />
 
+      <iframe 
+        width="540" 
+        height="305" 
+        src="https://06d7f9e8.sibforms.com/serve/MUIFAEpFh4ZIXQB4Al3S3OCFS2-GwCH6bVLBaK9w5z3GO2w-F-htO9t2kFLRja49LWuei-ZuqW1BxSYwzDJXuBfqLpCeoljVBk_vTKGD1W92SMCjyt8iElxsCLcjTiP3eTtTYSdettmrd02tr0OVWcIG1LxZTs5KXqJcF4RDHFJiqAQDM2NduQIm_whc15p39_3DitckJBRBOcjCbA==" 
+        frameBorder="0" 
+        scrolling="auto" 
+        allowFullScreen 
+        style={{ display: "block", marginLeft: "auto", marginRight: "auto", maxWidth: "100%", marginBottom: 40 }}
+      />
+
       {/* Photo-led split */}
       <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 56, alignItems: "start", marginBottom: 64 }} className="home-split">
         <div>
