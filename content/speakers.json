@@ -1,0 +1,17 @@
+[
+  {
+    "id": "2026-05",
+    "date": "Thursday, May 28, 2026",
+    "status": "upcoming",
+    "speaker": {
+      "name": "Francisco Nunes",
+      "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
+      "photo": "uploads/speakers/francisco-nunes.jpeg"
+    },
+    "talk": {
+      "title": "Finding friends at the clinic",
+      "abstract": "Finding clinical partners and participants is an important part of any HCI in health project. Sending emails, LinkedIn messages, WhatsApp messages to friends and colleagues asking for recommendations; anything goes. In this session, I will reflect on different strategies for locating and connecting with clinicians that I have used successfully in the past. I will also talk about a current project in which we are struggling to recruit partners and participants."
+    },
+    "recap": null
+  }
+]

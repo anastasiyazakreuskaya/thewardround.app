@@ -8,26 +8,31 @@ A simple, static website for The Ward Round working group. Built with React (no 
 ├── index.html          - Entry point
 ├── styles.css          - All styling
 ├── app.jsx            - Main app & navigation
-├── data.js            - Content data
+├── data.js            - Content data (workarounds, resources, past speakers)
 ├── paper.jsx          - Reusable design components
 ├── photo.jsx          - Photo components
 ├── sections/          - Page sections
 │   ├── home.jsx       - Home page with signup
 │   ├── workaround.jsx - Field notes
 │   ├── resources.jsx  - Resources & readings
-│   └── meetups.jsx    - Next meeting & recaps
-├── content/           - Content management (JSON files)
-│   ├── workarounds/
-│   ├── resources/
-│   └── meetups/
+│   ├── meetups.jsx    - Next meeting & recaps
+│   └── legal.jsx      - Legal notice / Impressum
 └── uploads/           - Images & assets
+    └── speakers/      - Speaker photos
 
 ```
 
 ## How to Edit Content
 
-### Method 1: Edit `data.js` directly
-Open `data.js` and add/edit entries in the arrays.
+### Speakers & Resources (Easy!)
+**Edit JSON files in `content/` folder:**
+- `content/speakers.json` - Upcoming and past speakers
+- `content/resources.json` - Filed resources
+
+See `content/README.md` for detailed instructions.
+
+### Workarounds
+Edit `data.js` and add/edit entries in the `workarounds` array.
 
 ### Method 2: Use JSON files (optional)
 Create JSON files in `content/` folders (see `content/README.md`), then copy to `data.js`.

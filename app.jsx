@@ -15,6 +15,7 @@ const App = () => {
     const h = (window.location.hash || "").replace("#", "");
     return ALL_SECTIONS.find(s => s.key === h) ? h : "home";
   });
+  const [legalHover, setLegalHover] = React.useState(false);
 
   React.useEffect(() => {
     window.location.hash = section;
@@ -23,6 +24,17 @@ const App = () => {
       try { window.parent.postMessage({ slideIndexChanged: idx }, "*"); } catch (e) {}
     }
   }, [section]);
+
+  React.useEffect(() => {
+    const handleHashChange = () => {
+      const h = (window.location.hash || "").replace("#", "");
+      if (ALL_SECTIONS.find(s => s.key === h)) {
+        setSection(h);
+      }
+    };
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
 
   const goTo = (k) => setSection(k);
   const current = ALL_SECTIONS.find(s => s.key === section);
@@ -64,15 +76,23 @@ const App = () => {
         <span>·</span>
         <a 
           href="#legal"
+          onMouseEnter={() => setLegalHover(true)}
+          onMouseLeave={() => setLegalHover(false)}
           style={{
             color: "inherit",
             font: "inherit",
             fontSize: "inherit",
             textDecoration: "underline",
-            opacity: 0.6,
+            opacity: legalHover ? 1 : 0.6,
+            cursor: "pointer",
+            transition: "opacity 0.2s ease",
+            padding: "4px 8px",
+            margin: "-4px -8px",
+            display: "inline-block",
+            pointerEvents: "auto",
           }}
         >
-          Legal
+          LEGAL
         </a>
       </div>
     </div>

@@ -1,26 +1,57 @@
 # Quick Maintenance Guide
 
-## Common Tasks
+## Content Management System
 
-### 1. Update Speaker for Next Meetup
-**File:** `sections/meetups.jsx` (lines 4-9)
-```javascript
-const speaker = {
-  name: "Speaker Name",
-  affiliation: "Their Institution",
-  topic: "Talk Title Here",
-  bio: "Brief bio about the speaker...",
-};
+All speakers and resources are managed through JSON files in `content/`:
+
+### 1. Add/Update Speaker
+**File:** `content/speakers.json`
+
+Add new speaker entry:
+```json
+{
+  "id": "2026-06",
+  "date": "June 26, 2026",
+  "status": "upcoming",
+  "speaker": {
+    "name": "Speaker Name",
+    "affiliation": "Institution",
+    "photo": "uploads/speakers/name.jpeg"
+  },
+  "talk": {
+    "title": "Talk Title",
+    "abstract": "Abstract text..."
+  },
+  "recap": null
+}
 ```
 
-### 2. Update Meetup Date
-**File:** `sections/meetups.jsx` (line ~32)
-```jsx
-Wednesday, 28 May 2026  // ← Change this
-17:00–18:30 BST         // ← And this
+After session: Change `"status": "past"` and add `"recap": "Session notes..."`
+
+### 2. Add Resource
+**File:** `content/resources.json`
+
+```json
+{
+  "id": "2026-05",
+  "date": "15 May 2026",
+  "kind": "Paper",
+  "title": "Citation",
+  "where": "Journal",
+  "link": "https://...",
+  "annotator": "X.Y.",
+  "annotatorRole": "Role, Institution",
+  "forWhom": "Target audience",
+  "readTime": "30 minutes",
+  "why": "Why it's useful..."
+}
 ```
 
-### 2. Add a Workaround
+### 3. Add Speaker Photo
+1. Save to `uploads/speakers/speaker-name.jpeg`
+2. Reference in speakers.json: `"photo": "uploads/speakers/speaker-name.jpeg"`
+
+### 4. Add a Workaround
 **File:** `data.js`
 Add to the `workarounds` array:
 ```javascript
@@ -35,42 +66,27 @@ Add to the `workarounds` array:
 },
 ```
 
-### 4. Add a Meetup Recap  
-**File:** `data.js`
-Add to the `speakers` array:
-```javascript
-{
-  date: "May 2026",
-  topic: "Topic title",
-  name: "Speaker Name",
-  affiliation: "Institution",
-  summary: "What happened in the session",
-  tags: ["Tag1", "Tag2"]
-},
-```
-
 ### 5. Add a Resource
 **File:** `data.js`
-Add to the `resources` array (if it exists, or create it):
+Add to the `resources` array:
 ```javascript
-resources: [
-  {
-    title: "Resource Title",
-    author: "Author",
-    url: "https://...",
-    summary: "Description",
-    tags: ["HCI"]
-  }
-]
+{
+  month: "15 May 2026",
+  kind: "Paper",
+  title: "Resource Title",
+  annotator: "Annotated by X.Y.",
+  annotatorRole: "Role, Institution",
+  where: "Journal Name",
+  link: "https://doi.org/...",
+  why: "Why this resource is useful...",
+  forWhom: "Who should read it",
+  readTime: "Allow 30 minutes."
+}
 ```
 
-### 6. Change Workaround Submission Email
-**File:** `sections/workaround.jsx` (line ~43)
-Change the email in the `mailto:` link
-
-### 7. Change Signup Form
-**File:** `sections/home.jsx` (line ~48)
-Replace the iframe `src` URL with your new form.
+### 6. Update Legal Notice (Impressum)
+**File:** `sections/legal.jsx` (line ~35)
+Add your postal address where indicated.
 
 ## Publishing Changes
 
@@ -86,18 +102,13 @@ Wait 1-2 minutes, then check: https://anastasiyazakreuskaya.github.io/thewardrou
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Entry point, loads React & scripts |
-| `app.jsx` | Navigation & routing |
-| `data.js` | **← EDIT THIS** for most content |
+| `data.js` | **← EDIT THIS** for workarounds & resources |
+| `sections/meetups.jsx` | **← EDIT** speaker info here |
+| `sections/legal.jsx` | Legal notice / Impressum |
 | `sections/home.jsx` | Home page |
 | `sections/workaround.jsx` | Displays workarounds |
 | `sections/resources.jsx` | Displays resources |
-| `sections/meetups.jsx` | **← EDIT** next meeting date here |
+| `app.jsx` | Navigation & routing |
+| `index.html` | Entry point |
 | `styles.css` | All styling |
-| `paper.jsx` | Design components |
-| `photo.jsx` | Photo components |
-
-## Don't Touch
-- `.git/` - Git repository data
-- `CNAME` - GitHub Pages domain config
-- `.gitignore` - Files to ignore in git
+| `uploads/speakers/` | Speaker photos |

@@ -1,9 +1,28 @@
 // Section: Resources
 const Resources = () => {
-  const items = window.WR_DATA.resources;
+  const [items, setItems] = React.useState([]);
   const [idx, setIdx] = React.useState(0);
-  const r = items[idx];
   const { FolderCover, Sketch, Stamp } = window.WRPaper;
+  
+  React.useEffect(() => {
+    if (window.WR_CONTENT.loaded) {
+      setItems(window.WR_CONTENT.resources);
+    } else {
+      const checkLoaded = setInterval(() => {
+        if (window.WR_CONTENT.loaded) {
+          setItems(window.WR_CONTENT.resources);
+          clearInterval(checkLoaded);
+        }
+      }, 100);
+      return () => clearInterval(checkLoaded);
+    }
+  }, []);
+  
+  if (items.length === 0) {
+    return <div className="section">Loading...</div>;
+  }
+  
+  const r = items[idx];
 
   return (
     <div className="section" data-screen-label="05 Resources" style={{ "--accent": "var(--c-resources)" }}>
@@ -34,7 +53,7 @@ const Resources = () => {
                       color: i === idx ? "var(--c-resources)" : "var(--ink-2)",
                       transition: "color 200ms ease",
                     }}>
-                    <div className="attr" style={{ marginBottom: 4, color: "inherit" }}>{it.month}</div>
+                    <div className="attr" style={{ marginBottom: 4, color: "inherit" }}>{it.date}</div>
                     <div style={{ fontFamily: "var(--f-display)", fontSize: 16, lineHeight: 1.3, color: i === idx ? "var(--ink)" : "var(--ink-2)" }}>{it.kind}</div>
                   </button>
                 </li>
@@ -43,9 +62,9 @@ const Resources = () => {
           </div>
         </aside>
 
-        <article className="rsc-doc" key={r.month}>
+        <article className="rsc-doc" key={r.id}>
           <div style={{ position: "absolute", top: 24, right: 28 }}>
-            <Stamp text={`${r.kind} · ${r.month}`} accent="var(--c-resources)" rotate={-5} />
+            <Stamp text={`${r.kind} · ${r.date}`} accent="var(--c-resources)" rotate={-5} />
           </div>
           <div className="kicker" style={{ marginBottom: 18 }}>
             <span className="dot" />
