@@ -37,6 +37,7 @@ const Workaround = () => {
 
 
 
+      {/* CARDS TEMPORARILY HIDDEN - UNCOMMENT TO SHOW AGAIN
       <div className="tile-grid">
         {items.map((it, i) => (
           <article key={it.id}
@@ -58,6 +59,7 @@ const Workaround = () => {
           </article>
         ))}
       </div>
+      */}
 
       {/* Submit a workaround */}
       <div style={{ maxWidth: 720, margin: "80px auto 80px", padding: "32px", background: "color-mix(in oklch, var(--c-workaround) 8%, transparent)", border: "2px solid var(--c-workaround)" }}>

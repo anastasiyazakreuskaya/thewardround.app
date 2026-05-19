@@ -62,6 +62,7 @@ const Resources = () => {
           </div>
         </aside>
 
+        {/* RESOURCE CARDS TEMPORARILY HIDDEN - UNCOMMENT TO SHOW AGAIN
         <article className="rsc-doc" key={r.id}>
           <div style={{ position: "absolute", top: 24, right: 28 }}>
             <Stamp text={`${r.kind} · ${r.date}`} accent="var(--c-resources)" rotate={-5} />
@@ -113,6 +114,7 @@ const Resources = () => {
             </div>
           )}
         </article>
+        */}
       </div>
 
       <style>{`@media (max-width: 880px) { .rsc-layout { grid-template-columns: 1fr !important; gap: 28px !important; } }`}</style>
