@@ -4,7 +4,6 @@
     "id": "2026-07",
     "date": "Thursday, July 30, 2026",
     "status": "upcoming",
-    "photo" : "community-round#01.png",
     "speaker": {
       "name": "Community Round",
       "affiliation": "Meet researchers from the Round",
@@ -25,7 +24,7 @@
     "speaker": {
       "name": "Pin Sym Foong",
       "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
-      "photo": "uploads/speakers/pin-sym-foong.jpeg"
+      "photo": "uploads/speakers/Foong-Pin-Sym.jpg"
     },
     "talk": {
       "title": "Practical Lessons from Working with Sensitive Populations",
@@ -38,7 +37,6 @@
     "id": "2026-05",
     "date": "Thursday, May 28, 2026",
     "status": "past",
-    "photo" : "francisco-nunes.jpeg",
     "speaker": {
       "name": "Francisco Nunes",
       "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
