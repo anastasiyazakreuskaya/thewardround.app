@@ -2,7 +2,7 @@
   {
     "id": "2026-05",
     "date": "Thursday, May 28, 2026",
-    "status": "upcoming",
+    "status": "passed",
     "speaker": {
       "name": "Francisco Nunes",
       "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
@@ -13,5 +13,36 @@
       "abstract": "Finding clinical partners and participants is an important part of any HCI in health project. Sending emails, LinkedIn messages, WhatsApp messages to friends and colleagues asking for recommendations; anything goes. In this session, I will reflect on different strategies for locating and connecting with clinicians that I have used successfully in the past. I will also talk about a current project in which we are struggling to recruit partners and participants."
     },
     "recap": null
+  },
+  {
+    "id": "2026-06",
+    "date": "Thursday, June 25, 2026",
+    "status": "passed",
+    "speaker": {
+      "name": "Pin Sym Foong",
+      "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
+      "photo": "uploads/speakers/pin-sym-foong.jpeg"
+    },
+    "talk": {
+      "title": "Practical Lessons from Working with Sensitive Populations",
+      "abstract": "Researchers often struggle with topics such as dying, illness, and other taboo topics.  In this talk I will share three practical lessons from my experience working with dementia care residents, and people with serious illnesses, from care home contexts to acute care hospitals. I hope to have a discussion about what working responsibly with sensitive populations means.  The talk will focus on adapting study design, managing emotions, and building trust relationships with these communities of care."
+    },
+    "recap": null
+  },
+  {
+    "id": "2026-07",
+    "date": "Thursday, July 30, 2026",
+    "status": "upcoming",
+    "speaker": {
+      "name": "Community Round",
+      "affiliation": "Meet researchers from the Round",
+      "photo": "uploads/speakers/community-round#01.png"
+    },
+    "talk": {
+      "title": "Planning and Preparing a Study Protocol",
+      "abstract": "Come join us with your upcoming, current or past study prototcol to reflect about challenges in the hospital. This round gives people from the community a space to discuss how to prepare a plan, know when and how to deviate from it and know how to wrap it up for a paper. We will share best practices and our challenges and you can bring very particular questions you are currently working on."
+    },
+    "recap": null
   }
+
 ]
