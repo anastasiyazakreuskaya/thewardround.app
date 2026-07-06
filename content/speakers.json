@@ -1,23 +1,27 @@
 [
+
   {
-    "id": "2026-05",
-    "date": "Thursday, May 28, 2026",
-    "status": "passed",
+    "id": "2026-07",
+    "date": "Thursday, July 30, 2026",
+    "status": "upcoming",
+    "photo" : "community-round#01.png",
     "speaker": {
-      "name": "Francisco Nunes",
-      "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
-      "photo": "uploads/speakers/francisco-nunes.jpeg"
+      "name": "Community Round",
+      "affiliation": "Meet researchers from the Round",
+      "photo": "uploads/speakers/community-round#01.png"
     },
     "talk": {
-      "title": "Finding friends at the clinic",
-      "abstract": "Finding clinical partners and participants is an important part of any HCI in health project. Sending emails, LinkedIn messages, WhatsApp messages to friends and colleagues asking for recommendations; anything goes. In this session, I will reflect on different strategies for locating and connecting with clinicians that I have used successfully in the past. I will also talk about a current project in which we are struggling to recruit partners and participants."
+      "title": "Planning and Preparing a Study Protocol",
+      "abstract": "Come join us with your upcoming, current or past study prototcol to reflect about challenges in the hospital. This round gives people from the community a space to discuss how to prepare a plan, know when and how to deviate from it and know how to wrap it up for a paper. We will share best practices and our challenges and you can bring very particular questions you are currently working on."
     },
     "recap": null
   },
+
   {
     "id": "2026-06",
     "date": "Thursday, June 25, 2026",
-    "status": "passed",
+    "status": "past",
+    "photo": "Foong-Pin-Sym.jpg",
     "speaker": {
       "name": "Pin Sym Foong",
       "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
@@ -29,20 +33,21 @@
     },
     "recap": null
   },
+
   {
-    "id": "2026-07",
-    "date": "Thursday, July 30, 2026",
-    "status": "upcoming",
+    "id": "2026-05",
+    "date": "Thursday, May 28, 2026",
+    "status": "past",
+    "photo" : "francisco-nunes.jpeg",
     "speaker": {
-      "name": "Community Round",
-      "affiliation": "Meet researchers from the Round",
-      "photo": "uploads/speakers/community-round#01.png"
+      "name": "Francisco Nunes",
+      "affiliation": "Senior Researcher at Fraunhofer AICOS, Porto, Portugal",
+      "photo": "uploads/speakers/francisco-nunes.jpeg"
     },
     "talk": {
-      "title": "Planning and Preparing a Study Protocol",
-      "abstract": "Come join us with your upcoming, current or past study prototcol to reflect about challenges in the hospital. This round gives people from the community a space to discuss how to prepare a plan, know when and how to deviate from it and know how to wrap it up for a paper. We will share best practices and our challenges and you can bring very particular questions you are currently working on."
+      "title": "Finding friends at the clinic",
+      "abstract": "Finding clinical partners and participants is an important part of any HCI in health project. Sending emails, LinkedIn messages, WhatsApp messages to friends and colleagues asking for recommendations; anything goes. In this session, I will reflect on different strategies for locating and connecting with clinicians that I have used successfully in the past. I will also talk about a current project in which we are struggling to recruit partners and participants."
     },
     "recap": null
   }
-
 ]

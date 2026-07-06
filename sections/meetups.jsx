@@ -155,7 +155,7 @@ const Meetups = () => {
               <div>
                 <div className="attr" style={{ marginBottom: 12 }}>{session.date}</div>
                 <img 
-                  src={session.speaker?.photo || "uploads/default-speaker.jpg"} 
+                  src={session.speaker?.photo || "uploads/speakers/" + session.speaker.photo} 
                   alt={session.speaker?.name || "Speaker"}
                   style={{ width: "100%", aspectRatio: "1", objectFit: "cover", border: "2px solid var(--rule)" }}
                 />
