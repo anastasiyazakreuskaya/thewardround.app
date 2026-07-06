@@ -140,45 +140,49 @@ const Meetups = () => {
         )}
         
         {/* Past sessions */}
-        {past.map((session) => (
-          <div key={session.id} style={{ 
-            padding: "24px 0",
-            borderBottom: "1px solid var(--rule)",
-            display: "grid",
-            gridTemplateColumns: "200px 1fr",
-            gap: 32,
-            alignItems: "start"
-          }}>
-            <div>
-              <div className="attr" style={{ marginBottom: 12 }}>{session.date}</div>
-              <img 
-                src={session.speaker.photo} 
-                alt={session.speaker.name}
-                style={{ width: "100%", aspectRatio: "1", objectFit: "cover", border: "2px solid var(--rule)" }}
-              />
-            </div>
-            
-            <div>
-              <div style={{ fontFamily: "var(--f-display)", fontSize: 22, fontWeight: 500, marginBottom: 8, color: "var(--ink)" }}>
-                {session.talk.title}
+        {past.length === 0 ? (
+          <div className="attr">No past sessions on file yet.</div>
+        ) : (
+          past.map((session, i) => (
+            <div key={session.id || `${session.date}-${i}`} style={{ 
+              padding: "24px 0",
+              borderBottom: "1px solid var(--rule)",
+              display: "grid",
+              gridTemplateColumns: "200px 1fr",
+              gap: 32,
+              alignItems: "start"
+            }}>
+              <div>
+                <div className="attr" style={{ marginBottom: 12 }}>{session.date}</div>
+                <img 
+                  src={session.speaker?.photo || "uploads/default-speaker.jpg"} 
+                  alt={session.speaker?.name || "Speaker"}
+                  style={{ width: "100%", aspectRatio: "1", objectFit: "cover", border: "2px solid var(--rule)" }}
+                />
               </div>
-              <div className="attr" style={{ marginBottom: 14 }}>
-                {session.speaker.name} — {session.speaker.affiliation}
-              </div>
-              <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)", marginBottom: 18 }}>
-                {session.talk.abstract}
-              </p>
-              {session.recap && (
-                <div style={{ padding: "18px 20px", background: "color-mix(in oklch, var(--c-archive) 8%, transparent)", borderLeft: "3px solid var(--c-archive)" }}>
-                  <div className="attr" style={{ marginBottom: 10, color: "var(--c-archive)" }}>📝 Session recap</div>
-                  <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--ink)", margin: 0 }}>
-                    {session.recap}
-                  </p>
+              
+              <div>
+                <div style={{ fontFamily: "var(--f-display)", fontSize: 22, fontWeight: 500, marginBottom: 8, color: "var(--ink)" }}>
+                  {session.talk?.title || "Untitled talk"}
                 </div>
-              )}
+                <div className="attr" style={{ marginBottom: 14 }}>
+                  {session.speaker?.name || "Unknown"} — {session.speaker?.affiliation || "—"}
+                </div>
+                <p style={{ fontSize: 16, lineHeight: 1.65, color: "var(--ink-2)", marginBottom: 18 }}>
+                  {session.talk?.abstract || ""}
+                </p>
+                {session.recap ? (
+                  <div style={{ padding: "18px 20px", background: "color-mix(in oklch, var(--c-archive) 8%, transparent)", borderLeft: "3px solid var(--c-archive)" }}>
+                    <div className="attr" style={{ marginBottom: 10, color: "var(--c-archive)" }}>📝 Session recap</div>
+                    <p style={{ fontSize: 15, lineHeight: 1.65, color: "var(--ink)", margin: 0 }}>
+                      {session.recap}
+                    </p>
+                  </div>
+                ) : null}
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
