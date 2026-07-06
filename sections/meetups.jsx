@@ -19,10 +19,10 @@ const Meetups = () => {
   }, []);
   
   // Get upcoming and past speakers
-  const upcoming = speakers.filter(s => s.status === "upcoming")[0];
-  const past = speakers.filter(s => s.status === "past").sort((a, b) => 
-    new Date(b.date) - new Date(a.date)
-  );
+  const upcoming = speakers.find(s => s.status === "upcoming");
+  const past = speakers
+    .filter(s => s.status === "past" || s.status === "passed")
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
   
   if (!upcoming) {
     return <div className="section">Loading...</div>;
@@ -30,6 +30,14 @@ const Meetups = () => {
   
   const speaker = upcoming.speaker;
   const talk = upcoming.talk;
+
+  // helper to normalize photo paths
+  const getPhotoFor = (item) => {
+    // prefer nested speaker.photo, then top-level photo
+    const p = item?.speaker?.photo || item?.photo || item?.speaker?.photo;
+    if (!p) return "uploads/speakers/default-speaker.jpg";
+    return p.startsWith("uploads/") ? p : `uploads/speakers/${p}`;
+  };
 
   return (
     <div className="section" data-screen-label="04 Meetups" style={{ "--accent": "var(--c-archive)" }}>
@@ -58,7 +66,7 @@ const Meetups = () => {
           {/* Speaker Card */}
           <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: 24, marginBottom: 20, padding: "24px", background: "color-mix(in oklch, var(--paper) 12%, transparent)", borderRadius: "4px" }}>
             <img 
-              src={speaker.photo} 
+              src={getPhotoFor(upcoming)} 
               alt={speaker.name}
               style={{ width: 120, height: 120, objectFit: "cover", borderRadius: "2px", border: "2px solid var(--paper)" }}
             />
@@ -103,7 +111,7 @@ const Meetups = () => {
             <div>
               <div className="attr" style={{ marginBottom: 12 }}>{upcoming.date}</div>
               <img 
-                src={speaker.photo} 
+                src={getPhotoFor(upcoming)} 
                 alt={speaker.name}
                 style={{ width: "100%", aspectRatio: "1", objectFit: "cover", border: "2px solid var(--rule)" }}
               />
@@ -155,7 +163,7 @@ const Meetups = () => {
               <div>
                 <div className="attr" style={{ marginBottom: 12 }}>{session.date}</div>
                 <img 
-                  src={session.speaker?.photo || "uploads/speakers/" + session.speaker.photo} 
+                  src={getPhotoFor(session)} 
                   alt={session.speaker?.name || "Speaker"}
                   style={{ width: "100%", aspectRatio: "1", objectFit: "cover", border: "2px solid var(--rule)" }}
                 />
